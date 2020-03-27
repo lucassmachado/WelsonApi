@@ -16,6 +16,7 @@ import org.apache.hc.core5.http.HttpResponse;
 
 public class EnviaArquivo {
 
+	//TODO: nome de método nunca deve ser o mesmo nome da classe (coisa básica hein...)
 	public void EnviaArquivo() {
 		File file = new File(
 				"C:/Desenvolvimento/workspaceAwb30/WelsonApi/answer.json");
