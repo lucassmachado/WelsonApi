@@ -1,40 +1,36 @@
 package br.com.codenation.files;
 
 import java.io.File;
-import java.io.IOException;
 
-import org.apache.hc.client5.http.classic.methods.HttpPost;
 import org.apache.hc.client5.http.entity.mime.FileBody;
 import org.apache.hc.client5.http.entity.mime.HttpMultipartMode;
 import org.apache.hc.client5.http.entity.mime.MultipartEntityBuilder;
 import org.apache.hc.client5.http.entity.mime.StringBody;
-import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
-import org.apache.hc.client5.http.impl.classic.HttpClients;
 import org.apache.hc.core5.http.ContentType;
-import org.apache.hc.core5.http.HttpEntity;
-import org.apache.hc.core5.http.HttpResponse;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpPost;
+
+
+
 
 public class EnviaArquivo {
 
+	
 	public void EnviaArquivo() {
-		File file = new File(
-				"C:/Desenvolvimento/workspaceAwb30/WelsonApi/answer.json");
-		
-		CloseableHttpClient client = HttpClients.createDefault();
-		HttpPost post = new HttpPost(
-				"https://api.codenation.dev/v1/challenge/dev-ps/submit-solution?token=814858516cd676572b4d77dfea079ef8111e6098");
+		File file = new File("C:\\programas\\loucademia\\JavaFundamentos\\Codenation1\\answer.json");
 
-		// File file = new File(textFileName);
+		HttpPost post = new HttpPost("https://api.codenation.dev/v1/challenge/dev-ps/submit-solution?token=814858516cd676572b4d77dfea079ef8111e6098");
 
-		// HttpPost post = new HttpPost("http://echo.200please.com");
+		//File file = new File(textFileName);
+
+		//HttpPost post = new HttpPost("http://echo.200please.com");
 
 		FileBody fileBody = new FileBody(file, ContentType.DEFAULT_BINARY);
 
-		StringBody stringBody1 = new StringBody("Message 1",
-				ContentType.MULTIPART_FORM_DATA);
+		StringBody stringBody1 = new StringBody("Message 1", ContentType.MULTIPART_FORM_DATA);
 
-		StringBody stringBody2 = new StringBody("Message 2",
-				ContentType.MULTIPART_FORM_DATA);
+		StringBody stringBody2 = new StringBody("Message 2", ContentType.MULTIPART_FORM_DATA);
 
 		//
 
@@ -54,10 +50,7 @@ public class EnviaArquivo {
 
 		post.setEntity(entity);
 
-		try {
-			HttpResponse response = client.execute(post);
-		} catch (IOException e) {
-			System.out.println(e);
-		}
+		
+		//HttpResponse response = client.execute(post);
 	}
 }
